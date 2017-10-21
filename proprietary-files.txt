@@ -208,6 +208,7 @@ etc/camera/s5k5e8_ofilm_chromatix.xml
 etc/camera/sunny_s5k3l8_f3l8yam_chromatix.xml
 lib/hw/camera.msm8937.so
 lib/libRecoFace.so
+lib/libshims_camera.so
 lib/libmm-qcamera.so
 lib/libmmjpeg_interface.so
 lib/libmorpho_memory_allocator.so
