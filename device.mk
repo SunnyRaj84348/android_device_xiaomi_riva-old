@@ -68,6 +68,13 @@ PRODUCT_PACKAGES += \
     com.dsi.ant.antradio_library \
     libantradio
 
+# Zram
+PRODUCT_COPY_FILES += \
+$(LOCAL_PATH)/rootdir/etc/init.d/miui6zram:system/etc/init.d/miui6zram \
+$(LOCAL_PATH)/rootdir/etc/init.d/lup_1_optimized_rev:system/etc/init.d/lup_1_optimized_rev \
+$(LOCAL_PATH)/rootdir/etc/init.d/lup_2_optimized_rev:system/etc/init.d/lup_2_optimized_rev \
+$(LOCAL_PATH)/rootdir/etc/init.d/lup_1_optimized_rev:system/etc/init.d/lup_3_optimized_rev 
+
 # Audio
 PRODUCT_PACKAGES += \
     audiod \
