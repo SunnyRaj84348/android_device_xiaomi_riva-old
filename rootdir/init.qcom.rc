@@ -415,6 +415,9 @@ on boot
     chown root system /sys/class/leds/infrared/transmit
     chown root system /sys/class/leds/infrared/brightness
 
+    chmod 0660 /proc/gesture/onoff
+    chown system system /proc/gesture/onoff
+
 on class_start:late_start
     write /proc/sys/net/ipv6/conf/default/accept_ra_defrtr 1
 
