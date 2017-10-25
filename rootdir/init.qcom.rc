@@ -288,6 +288,11 @@ service cs-early-boot /system/bin/sh /persist/coresight/qdss.agent.sh early-boot
     user root
     oneshot
 
+service qcom-c_main-sh /system/bin/sh /init.class_main.sh
+    class main
+    user root
+    oneshot
+
 on boot
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/type

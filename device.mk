@@ -140,7 +140,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     ebtables \
     ethertypes \
-    libebtc
+    libebtc \
+    curl \
+    libnl_2 \
+    libbson \
+    libtinyxml2 \
+    libnfnetlink \
+    libnetfilter_conntrack \
+    libdhcpcd
 
 # Fingerprint
 PRODUCT_PACKAGES += \
@@ -265,11 +272,13 @@ PRODUCT_PACKAGES += \
     libqsap_sdk \
     libQWiFiSoftApCfg \
     libwpa_client \
+    libwcnss_qmi \
     hostapd \
     dhcpcd.conf \
     wpa_supplicant \
     wpa_supplicant.conf \
-    wcnss_service
+    wcnss_service \
+    libwifi-hal-qcom 
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/hostapd.accept:system/etc/hostapd/hostapd.accept \
