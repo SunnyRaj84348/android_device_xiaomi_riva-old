@@ -13,7 +13,7 @@ Basic   | Spec Sheet
 SoC     | Qualcomm MSM8917 Snapdragon 425
 CPU     | Quad-core 1.4 GHz ARM® Cortex™ A53
 GPU     | Adreno 308
-Memory  | 2 GB RAM | 3 GB RAM
+Memory  | 2 AND 3 GB RAM 
 Shipped Android Version | 6.0.1
 Storage | 16/32 GB
 MicroSD | Up to 256 GB
