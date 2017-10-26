@@ -240,14 +240,25 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
+    init.class_main.sh \
     init.qcom.rc \
     init.qcom.sh \
-    init.qcom.usb.rc \
+    init.qcom.factory.rc \
+    init.qcom.syspart_fixup.sh \
     init.qcom.usb.sh \
-    ueventd.qcom.rc
-
-PRODUCT_PACKAGES += \
+    init.qcom.usb.rc \
+    ueventd.qcom.rc \
+    init.crda.sh \
+    init.qcom.audio.sh \
     init.qcom.bt.sh \
+    init.qcom.coex.sh \
+    init.qcom.debug.sh \
+    init.qcom.efs.sync.sh \
+    init.qcom.sdio.sh \
+    init.qcom.wifi.sh \
+    init.qcom.fm.sh \
+    init.qcom.post_boot.sh \
+    init.qcom.power.rc
 
 # RIL
 PRODUCT_PACKAGES += \
