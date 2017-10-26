@@ -547,6 +547,15 @@ service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     seclabel u:r:bluetooth_loader:s0
     oneshot
 
+service ds_fmc_appd /system/bin/ds_fmc_appd -p "rmnet0" -D
+    class late_start
+    group radio wifi inet
+    disabled
+    oneshot
+
+on property:persist.data.ds_fmc_app.mode=1
+    start ds_fmc_appd
+
 on property:bluetooth.hciattach=true
     start hciattach
 
