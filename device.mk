@@ -142,10 +142,6 @@ PRODUCT_PACKAGES += \
     libnetfilter_conntrack \
     libdhcpcd
 
-# Fingerprint
-PRODUCT_PACKAGES += \
-    fingerprintd
-
 # FM
 PRODUCT_PACKAGES += \
     FMRadio \
