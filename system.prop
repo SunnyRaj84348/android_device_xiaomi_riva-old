@@ -54,6 +54,8 @@ persist.camera.imglib.cac3=2
 camera.lowpower.record.enable=1
 persist.camera.gyro.disable=0
 camera.hal1.packagelist=com.skype.raider,com.google.android.talk
+media.stagefright.legacyencoder=true
+media.stagefright.less-secure=true
 
 # Cne
 persist.cne.feature=1
