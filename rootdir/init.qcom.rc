@@ -102,10 +102,6 @@ on post-fs-data
     mkdir /data/misc/ipa 0700 net_admin net_admin
 
     mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
-    
-    # DT2W Gesture
-    chmod 0660 /proc/gesture/onoff
-    chown system system /proc/gesture/onoff
 
     # Create the directories used by the Wireless subsystem
     mkdir /data/misc/wifi 0770 wifi wifi
