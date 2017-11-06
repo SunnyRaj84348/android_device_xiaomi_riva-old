@@ -72,6 +72,12 @@ on charger
     setprop persist.sys.usb.config mass_storage
     start hvdcp_opti
 
+on property:dt2w.enabled=1
+    write /proc/gesture/onoff 1
+	
+on property:dt2w.enabled=0
+    write /proc/gesture/onoff 0	
+	
 # msm specific files that need to be created on /data
 on post-fs-data
     mkdir /data/tombstones 0771 system system
