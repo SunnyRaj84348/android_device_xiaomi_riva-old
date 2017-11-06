@@ -218,6 +218,12 @@ on boot
     chown root system /sys/kernel/dload/emmc_dload
     chmod 0660 /sys/kernel/dload/emmc_dload
 
+on property:dt2w.enabled=1
+    write /proc/gesture/onoff 1
+	
+on property:dt2w.enabled=0
+    write /proc/gesture/onoff 0	
+	
 # msm specific files that need to be created on /data
 on post-fs-data
     #Create directories for Fingerprint
