@@ -477,12 +477,6 @@ on property:persist.sys.ssr.enable_ramdumps=1
 on property:persist.sys.ssr.enable_ramdumps=0
 write /sys/module/subsystem_restart/parameters/enable_ramdumps 0
 
-service qcom-post-boot /system/bin/sh /system/etc/init.qcom.post_boot.sh
-    class late_start
-    user root
-    disabled
-    oneshot
-
 service fm_dl /system/bin/sh /init.qcom.fm.sh
     class late_start
     user system
