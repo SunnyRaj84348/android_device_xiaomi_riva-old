@@ -111,6 +111,14 @@ vidc.dec.downscalar_height=1088
 vidc.disable.split.mode=1
 vidc.enc.disable.pq=true
 
+#enable software decoders for ALAC and APE.
+use.qti.sw.alac.decoder=true
+use.qti.sw.ape.decoder=true
+
+#property for vendor specific library
+ro.vendor.at_library=libqti-at.so
+ro.vendor.gt_library=libqti-gt.so
+
 # Perf
 ro.vendor.gt_library=libqti-gt.so
 ro.vendor.at_library=libqti-at.so
@@ -172,6 +180,22 @@ persist.timed.enable=true
 
 # Tcp
 net.tcp.2g_init_rwnd=10
+
+#property to enable fingerprint
+persist.qfp=false
+
+#min/max cpu in core control
+ro.core_ctl_min_cpu=2
+ro.core_ctl_max_cpu=4
+
+# set cutoff voltage to 3200mV
+ro.cutoff_voltage_mv=3200
+
+#set device emmc size
+ro.emmc_size=16G
+
+#property to enable DS2 dap
+audio.dolby.ds2.enabled=true
 
 # Trim properties
 ro.sys.fw.use_trim_settings=true
