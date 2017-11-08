@@ -133,14 +133,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     ebtables \
     ethertypes \
-    libebtc \
-    curl \
-    libnl_2 \
-    libbson \
-    libtinyxml2 \
-    libnfnetlink \
-    libnetfilter_conntrack \
-    libdhcpcd
+    libebtc
 
 # FM
 PRODUCT_PACKAGES += \
