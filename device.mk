@@ -226,18 +226,12 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.sh \
     init.qcom.usb.rc \
     ueventd.qcom.rc \
-    init.crda.sh \
     init.qcom.audio.sh \
     init.qcom.bt.sh \
     init.qcom.uicc.sh \
-    init.qcom.coex.sh \
-    init.qcom.debug.sh \
-    init.qcom.efs.sync.sh \
     init.qcom.sdio.sh \
     init.qcom.wifi.sh \
-    init.qcom.fm.sh \
-    init.qcom.post_boot.sh \
-    init.qcom.power.rc
+    init.qcom.post_boot.sh
 
 # RIL
 PRODUCT_PACKAGES += \
