@@ -634,6 +634,8 @@ service port-bridge /system/bin/port-bridge
 service netmgrd /system/bin/netmgrd
     class main
     disabled
+    user root
+    group radio readproc system wakelock
 
 service ipacm-diag /system/bin/ipacm-diag
     class main
