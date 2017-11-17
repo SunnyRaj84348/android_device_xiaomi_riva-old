@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!--
-    Copyright (c) 2015-16, The Linux Foundation. All rights reserved.
+    Copyright (c) 2015-2016, The Linux Foundation. All rights reserved.
 
     Redistribution and use in source and binary forms, with or without
     modification, are permitted provided that the following conditions are
@@ -54,15 +54,14 @@
     <ctl name="RX1 Digital Volume" value="84" />
     <ctl name="RX2 Digital Volume" value="84" />
     <ctl name="RX3 Digital Volume" value="84" />
-    <ctl name="IIR1 INP1 Volume" value="84" />
+    <!-- +bug 308625, wujinfeng.wt, modify, 20171012, <ctl name="IIR？ INP？ Volume" value="53" /> the defalut value shoud be same with path's -->
+    <ctl name="IIR1 INP1 Volume" value="53" />
     <ctl name="IIR1 INP2 Volume" value="84" />
     <ctl name="IIR1 INP3 Volume" value="84" />
     <ctl name="IIR1 INP4 Volume" value="84" />
-    <!-- +zhangjianming.wt,modify ,20160112, optimizing audio setting -->
     <ctl name="ADC1 Volume" value="4" />
     <ctl name="ADC2 Volume" value="4" />
     <ctl name="ADC3 Volume" value="4" />
-    <!-- -zhangjianming.wt,modify ,20160112, optimizing audio setting -->
     <ctl name="DEC1 Volume" value="84" />
     <ctl name="DEC2 Volume" value="84" />
     <ctl name="DEC2 MUX" value="ZERO" />
@@ -836,16 +835,12 @@
 
     <!-- These are actual sound device specific mixer settings -->
     <path name="adc1">
-    <!-- +zhangjianming.wt,add ,20160112, optimizing audio setting -->
-        <ctl name="ADC1 Volume" value="6" />
-    <!-- -zhangjianming.wt,add ,20160112, optimizing audio setting -->
+    	<ctl name="ADC1 Volume" value="6" />
         <ctl name="DEC1 MUX" value="ADC1" />
     </path>
 
     <path name="adc2">
-    <!-- +zhangjianming.wt,add ,20160112, optimizing audio setting -->
-        <ctl name="ADC2 Volume" value="6" />
-    <!-- -zhangjianming.wt,add ,20160112, optimizing audio setting -->
+    	<ctl name="ADC2 Volume" value="6" />
         <ctl name="DEC1 MUX" value="ADC2" />
     </path>
     <path name="adc3">
@@ -855,12 +850,13 @@
     </path>
 
     <path name="speaker">
+    <!-- speaker use hphr chengong.wt 20170504 -->
         <ctl name="MI2S_RX Channels" value="One" />
         <ctl name="RX2 MIX1 INP1" value="RX2" />
         <ctl name="RDAC2 MUX" value="RX2" />
         <ctl name="HPHR" value="Switch" />
         <ctl name="Lineout_1 amp" value="ENABLE"/>
-   </path>
+    </path>
 
     <path name="wsa-speaker">
         <ctl name="RX1 MIX1 INP1" value="RX1" />
@@ -957,12 +953,11 @@
     </path>
 
     <path name="handfree-mic">
-        <path name="adc2" />
-        <ctl name="DEC1 MUX" value="ADC2" />
-        <ctl name="ADC2 MUX" value="INP3" /> 
+        <path name="adc3" />
     </path>
-
+    
     <path name="voice-speaker-mic">
+    <!-- voice handfree use second mic chengong.wt 20170504 -->
         <path name="handfree-mic" />
     </path>
 
@@ -981,7 +976,10 @@
         <ctl name="RDAC2 MUX" value="RX2" />
         <ctl name="HPHL" value="Switch" />
         <ctl name="HPHR" value="Switch" />
-	<ctl name="Lineout_1 amp" value="DUALMODE"/>
+        <!-- +bug284939, cm-fushipan.wt, modify, 20170821, 来电铃声响起后插入耳机，先从右声道传出声音，之后再两个声道都传出 -->
+        <ctl name="Lineout_1 amp" value="ENABLE"/>
+        <ctl name="headset amp" value="ENABLE"/>
+        <!-- -bug284939, cm-fushipan.wt, modify, 20170821, 来电铃声响起后插入耳机，先从右声道传出声音，之后再两个声道都传出 -->
     </path>
 
     <path name="usb-headphones">
@@ -1026,9 +1024,7 @@
     <!-- Dual MIC devices -->
     <path name="speaker-dmic-endfire">
         <path name="adc1" />
-        <!-- +zhangjianming.wt,add ,20160112, optimizing audio setting -->
-        <ctl name="ADC3 Volume" value="4" />
-        <!-- -zhangjianming.wt,add ,20160112, optimizing audio setting -->
+    	<ctl name="ADC3 Volume" value="4" />
         <ctl name="DEC2 MUX" value="ADC2" />
         <ctl name="MI2S_TX Channels" value="Two" />
         <ctl name="ADC2 MUX" value="INP3" />
