@@ -1,5 +1,5 @@
 #!/system/bin/sh
-# Copyright (c) 2012, The Linux Foundation. All rights reserved.
+# Copyright (c) 2009-2011, 2015, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -26,54 +26,65 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-target="$1"
-serial="$2"
+setprop hw.fm.init 0
 
-# No path is set up at this point so we have to do it here.
-PATH=/sbin:/system/sbin:/system/bin:/system/xbin
-export PATH
+mode=`getprop hw.fm.mode`
+version=199217
 
-mount_needed=false;
+LOG_TAG="qcom-fm"
+LOG_NAME="${0}:"
 
-if [ ! -f /system/etc/boot_fixup ];then
-# This should be the first command
-# remount system as read-write.
-  mount -o rw,remount,barrier=1 /system
-  mount_needed=true;
-fi
+loge ()
+{
+  /system/bin/log -t $LOG_TAG -p e "$LOG_NAME $@"
+}
 
-# **** WARNING *****
-# This runs in a single-threaded, critical path portion
-# of the Android bootup sequence.  This is to guarantee
-# all necessary system partition fixups are done before
-# the rest of the system starts up.  Run any non-
-# timing critical tasks in a separate process to
-# prevent slowdown at boot.
+logi ()
+{
+  /system/bin/log -t $LOG_TAG -p i "$LOG_NAME $@"
+}
 
-# Run modem link script
-if [ -f /system/etc/init.qcom.modem_links.sh ]; then
-  /system/bin/sh /system/etc/init.qcom.modem_links.sh
-fi
+failed ()
+{
+  loge "$1: exit code $2"
+  exit $2
+}
 
-# Run mdm link script
-if [ -f /system/etc/init.qcom.mdm_links.sh ]; then
-  /system/bin/sh /system/etc/init.qcom.mdm_links.sh
-fi
+logi "In FM shell Script"
+logi "mode: $mode"
+logi "Version : $version"
 
-# Run wifi script
-if [ -f /system/etc/init.qcom.wifi.sh ]; then
-  /system/bin/sh /init.qcom.wifi.sh "$target" "$serial"
-fi
+#$fm_qsoc_patches <fm_chipVersion> <enable/disable WCM>
+#
+case $mode in
+  "normal")
+        logi "inserting the radio transport module"
+        echo 1 > /sys/module/radio_iris_transport/parameters/fmsmd_set
+        /system/bin/fm_qsoc_patches $version 0
+     ;;
+  "wa_enable")
+   /system/bin/fm_qsoc_patches $version 1
+     ;;
+  "wa_disable")
+   /system/bin/fm_qsoc_patches $version 2
+     ;;
+   *)
+    logi "Shell: Default case"
+    /system/bin/fm_qsoc_patches $version 0
+    ;;
+esac
 
-# Run the sensor script
-if [ -f /system/etc/init.qcom.sensor.sh ]; then
-  /system/bin/sh /system/etc/init.qcom.sensor.sh
-fi
+exit_code_fm_qsoc_patches=$?
 
-touch /system/etc/boot_fixup
+case $exit_code_fm_qsoc_patches in
+   0)
+	logi "FM QSoC calibration and firmware download succeeded"
+   ;;
+  *)
+	failed "FM QSoC firmware download and/or calibration failed" $exit_code_fm_qsoc_patches
+   ;;
+esac
 
-if $mount_needed ;then
-# This should be the last command
-# remount system as read-only.
-  mount -o ro,remount,barrier=1 /system
-fi
+setprop hw.fm.init 1
+
+exit 0
