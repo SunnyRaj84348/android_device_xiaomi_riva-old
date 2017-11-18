@@ -234,9 +234,3 @@ ro.config.swap=true
 
 # Fix DT2W
 dt2w.enabled=1
-
-#bug244652, zk-zufengmei, add, 20170821, NO_STAPA
-persist.radio.NO_STAPA=1
-
-# enable new autobrightness algo
-sys.autobrightness_optimize=true
