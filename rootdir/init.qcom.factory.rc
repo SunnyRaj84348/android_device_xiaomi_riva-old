@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2009-2015, The Linux Foundation. All rights reserved.
+# Copyright (c) 2009-2016, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -32,10 +32,19 @@ service fastmmi /system/bin/mmi
     group root
     disabled
 
-service srvmag_ffbm /system/bin/servicemanager
-    user root
-    disabled
-    oneshot
+
+on property:sys.boot_mode=ffbm
+    write -p /dev/block /dev/block/bootdevice/by-name/misc "ffbm-01"
+
+on property:sys.boot_mode=normal
+    write -p /dev/block /dev/block/bootdevice/by-name/misc "normal"
+
+service gx_fpd_fastmmi /system/bin/gx_fpd
+     class core
+     user root
+     group system system
+     oneshot
+     disabled
 
 # Creating a scratch storage on /data for factory testing.
 on factory-fs
@@ -45,6 +54,12 @@ on mmi
     # ====================================================================
     #       The follow setting come from "on boot" in init.qcom.rc
     # ====================================================================
+    # begin add for fast start modem when ue in factory lixiuzhen
+    #echo related > /sys/bus/msm_subsys/devices/subsys3/restart_level
+    write /sys/bus/msm_subsys/devices/subsys3/restart_level related
+    write /sys/kernel/debug/msm_subsys/modem get
+    #echo get > /sys/kernel/debug/msm_subsys/modem
+    #end
     write /sys/class/android_usb/android0/iSerial "0123456789"
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
@@ -72,7 +87,11 @@ on mmi
 
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/device/extldo
     chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
-
+    
+    #Hardwareinfo wuguang.wt ++
+    chown system system /dev/hardwareinfo
+    chmod 0664 /dev/hardwareinfo
+    
     #Create QMUX deamon socket area
     mkdir /dev/socket/qmux_radio 0770 radio radio
     chmod 2770 /dev/socket/qmux_radio
@@ -87,12 +106,14 @@ on mmi
 
     #disable camera read sensors data on FFBM
     setprop persist.camera.gyro.disable 1
+    #added by xueweijie for factorymmi not require auth 
+    setprop sys.adb.factory.secure 1
 
 #   Define TCP buffer sizes for various networks
 #   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
     setprop net.tcp.buffersize.wifi    524288,2097152,4194304,262144,524288,1048576
 
-
+		setprop persist.camera.gyro.disable 1
     setprop ro.telephony.call_ring.multiple false
 
     #Remove SUID bit for iproute2 ip tool
@@ -100,7 +121,6 @@ on mmi
 
 
     setprop sys.usb.configfs 0
-    setprop sys.adb.factory.secure 1
 
     chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
 
@@ -260,6 +280,18 @@ on mmi
     chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 
     chown system system /sys/class/timed_output/vibrator/enable
+    chown system system /sys/class/leds/keyboard-backlight/brightness
+    chown system system /sys/class/leds/lcd-backlight/brightness
+    chown system system /sys/class/leds/torch-light/brightness
+    chown system system /sys/class/leds/flashlight/brightness
+    chown system system /sys/class/leds/button-backlight/brightness
+    chown system system /sys/class/leds/jogball-backlight/brightness
+    chown system system /sys/class/leds/red/brightness
+    chown system system /sys/class/leds/green/brightness
+    chown system system /sys/class/leds/blue/brightness
+    chown system system /sys/class/leds/red/device/grpfreq
+    chown system system /sys/class/leds/red/device/grppwm
+    chown system system /sys/class/leds/red/device/blink
     chown system system /sys/class/timed_output/vibrator/enable
     chown system system /sys/module/sco/parameters/disable_esco
     chown system system /sys/kernel/ipv4/tcp_wmem_min
@@ -270,19 +302,50 @@ on mmi
     chown system system /sys/kernel/ipv4/tcp_rmem_max
     chown root radio /proc/cmdline
 
+    # Goodix Fingerprint
+    chown system system /dev/goodix_fp
+    chmod 0644 /dev/goodix_fp 
+
+    # Define default initial receive window size in segments.
+    setprop net.tcp.default_init_rwnd 60
+
+    # ========================================================
+    #              This is FFBM only settings.
+    # ========================================================
+
+    #mount sdcard by default
+    mount vfat /dev/block/mmcblk1p1 /storage/sdcard1
+
+    #mkdir for factory data files.
+    mkdir /cache/FTM_AP 0750 root root
+    #set property for sys.usb.config
+#+Req 248140 haozhenghui.wt,modify,20170327,系统自带
+    setprop sys.usb.config diag,adb
+#-Req 248140 haozhenghui.wt,modify,20170327,系统自带
+    #sensor settings
+    chmod 775 /persist/sensors
+    chmod 664 /persist/sensors/sensors_settings
+    chown system root /persist/sensors/sensors_settings
+    mkdir /data/misc/sensors 775 system root
+
+    #Create NETMGR daemon socket area
+    mkdir /dev/socket/netmgr 0750 radio radio
+
     #Start the following services needed for fftm
     start qcom-usb-sh
     start logd
     start debuggerd
     start debuggerd64
+#+Req 248140 haozhenghui.wt,modify,20170327,系统无法启动
+    start servicemanager
+    start surfaceflinger
+#-Req 248140 haozhenghui.wt,modify,20170327,系统无法启动
     start per_mgr
     start ril-daemon
     start qcom-sh
     start config_bluetooth
     start sensors
     #start media
-    start srvmag_ffbm
-    start surfaceflinger
     start fastmmi
     start wcnss-service
     start qcom-post-boot
@@ -293,6 +356,7 @@ on mmi
     start qcomsysd
     start ptt_ffbm
     start tftp_server
+    start gx_fpd_fastmmi   
     start qseecomd
 
 on ffbm
@@ -300,3 +364,21 @@ on ffbm
     trigger factory-fs
     trigger fs
     trigger post-fs
+
+    # Load properties from /system/ + /factory after fs mount. Place
+    # this in another action so that the load will be scheduled after the prior
+    # issued fs triggers have completed.
+    trigger load_system_props_action
+
+    # Now we can mount /data. File encryption requires keymaster to decrypt
+    # /data, which in turn can only be loaded when system properties are present
+    trigger post-fs-data
+    trigger load_persist_props_action
+
+    # Remove a file to wake up anything waiting for firmware.
+    trigger firmware_mounts_complete
+
+    trigger early-boot
+    #trigger boot
+    trigger mmi
+
