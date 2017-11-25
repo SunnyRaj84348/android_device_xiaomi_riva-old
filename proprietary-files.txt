@@ -1875,6 +1875,7 @@ vendor/lib/libmmcamera_isp_sce40.so
 vendor/lib/libmmcamera_isp_sub_module.so
 vendor/lib/libmmcamera_isp_template.so
 vendor/lib/libmmcamera_isp_wb40.so
+vendor/lib/lib_lowlight.so
 
 # kernel modules
 
@@ -1941,11 +1942,6 @@ vendor/lib64/libsecureui_svcsock.so
 vendor/lib64/libsecureuisvc_jni.so
 vendor/lib64/libssd.so
 vendor/lib64/libtzdrmgenprov.so
-
-
-
-# Firmwares
-etc/firmware/DE.o.msm8937
 
 # FIDO
 vendor/lib/libFidoCrypto.so
@@ -2028,6 +2024,8 @@ vendor/lib64/libxtwifi_ulp_adaptor.so
 
 # Graphics
 vendor/lib/egl/eglSubDriverAndroid.so
+vendor/lib/libsc-a3xx.so
+vendor/lib64/libsc-a3xx.so
 vendor/lib/egl/eglsubAndroid.so
 vendor/lib/egl/libEGL_adreno.so
 vendor/lib/egl/libESXEGL_adreno.so
@@ -2223,8 +2221,6 @@ vendor/lib64/libmmosal.so
 vendor/lib/libOmxVideoDSMode.so
 vendor/lib/libomx-dts.so
 
-
-
 # MMI
 vendor/lib/libmmi.so
 vendor/lib/libmmiipstreammmihttp.so
@@ -2301,10 +2297,12 @@ bin/msm_irqbalance
 vendor/bin/perfd
 vendor/lib/libqti-iop-client.so
 vendor/lib/libqti-perfd-client.so
-vendor/lib/libqti_performance.so
 vendor/lib64/libqti-iop-client.so
 vendor/lib64/libqti-perfd-client.so
-vendor/lib64/libqti_performance.so
+vendor/lib64/libqti-at.so
+vendor/lib/libqti-at.so
+vendor/etc/diracmobile.config
+vendor/etc/msm_irqbalance.conf
 
 # Peripheral manager
 bin/pm-proxy
@@ -2313,9 +2311,10 @@ vendor/lib/libperipheral_client.so
 vendor/lib64/libperipheral_client.so
 
 # Postprocessing
+etc/permissions/com.qti.snapdragon.sdk.display.xml
 framework/com.qti.snapdragon.sdk.display.jar
+-vendor/app/colorservice/colorservice.apk
 vendor/bin/mm-pp-dpps
-vendor/lib/libdisp-aba.so
 vendor/lib64/libdisp-aba.so
 
 # QMI
@@ -2359,12 +2358,15 @@ vendor/lib64/libqmiservices.so
 vendor/lib64/libqti-wl.so
 vendor/lib64/libquipc_os_api.so
 vendor/lib64/libsmemlog.so
+vendor/lib/libQSEEComAPI.so
+vendor/lib64/libQSEEComAPI.so
+vendor/lib/libmdtp.so
+vendor/lib64/libmdtp.so
 
 # Radio
 -app/QtiTelephonyService/QtiTelephonyService.apk
 -app/datastatusnotification/datastatusnotification.apk
 -app/embms/embms.apk
--app/fastdormancy/fastdormancy.apk
 -app/shutdownlistener/shutdownlistener.apk
 bin/netmgrd
 bin/port-bridge
@@ -2522,7 +2524,6 @@ vendor/lib64/libTimeService.so
 
 -vendor/app/CABLService/CABLService.apk
 -vendor/app/colorservice/colorservice.apk
--vendor/app/SmartcardService/SmartcardService.apk
 -vendor/app/SVIService/SVIService.apk
 
 
@@ -2613,3 +2614,4 @@ vendor/lib64/libpvr.so
 vendor/lib64/librmp.so
 vendor/lib64/libSampleAuthJNI.so
 vendor/lib64/libSampleExtAuthJNI.so
+
