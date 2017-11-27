@@ -209,6 +209,10 @@ on boot
     chown system system /sys/class/leds/red/device/grppwm
     chown system system /sys/class/leds/red/device/blink
 
+    # IR blaster
+    chown root system /sys/class/leds/infrared/transmit
+    chown root system /sys/class/leds/infrared/brightness
+
     # bug244097, enlarge the log buffer size,xuchao,20170206,start
     setprop persist.logd.size 2097152
     # bug244097, enlarge the log buffer size,xuchao,20170206,end
