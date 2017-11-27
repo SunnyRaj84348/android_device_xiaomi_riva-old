@@ -1054,6 +1054,9 @@ on property:dt2w.enabled=1
 on property:dt2w.enabled=0
     write /proc/gesture/onoff 0
 
+    chmod 0660 /proc/gesture/onoff
+    chown system system /proc/gesture/onoff
+
 service qbcharger /charger -m 1
     disabled
     oneshot
