@@ -100,10 +100,10 @@ function configure_memory_parameters() {
     echo $clearPercent > /sys/module/zcache/parameters/clear_percent
     echo 30 >  /sys/module/zcache/parameters/max_pool_percent
 
-    # Zram disk - 1500MB size
+    # Zram disk - 512MB size
     zram_enable=`getprop ro.config.zram`
     if [ "$zram_enable" == "true" ]; then
-        echo 1536870912 > /sys/block/zram0/disksize
+        echo 536870912 > /sys/block/zram0/disksize
         mkswap /dev/block/zram0
         swapon /dev/block/zram0 -p 32758
     fi
@@ -2394,3 +2394,15 @@ case "$console_config" in
         echo "Enable console config to $console_config"
         ;;
 esac
+
+# Init.d support
+SU="$(ls /su/bin/su 2>/dev/null || ls /system/xbin/su) -c"
+mount -o rw,remount /system && SU="" || eval "$SU mount -o rw,remount /system"
+eval "$SU chmod 777 /system/etc/init.d"
+eval "$SU chmod 777 /system/etc/init.d/*"
+eval "$SU mount -o ro,remount /system"
+ls /system/etc/init.d/* 2>/dev/null | while read xfile ; do eval "$SU /system/bin/sh $xfile" ; done
+
+#LED
+chown system:system /sys/class/leds/*/brightness
+chown system:system /sys/class/leds/*/blink
