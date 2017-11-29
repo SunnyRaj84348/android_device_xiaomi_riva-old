@@ -2397,6 +2397,7 @@ vendor/lib64/libvoice-svc.so
 
 # FM Radio
 framework/qcom.fmradio.jar
+bin/fm_qsoc_patches
 
 # Sensors
 bin/sensors.qcom
