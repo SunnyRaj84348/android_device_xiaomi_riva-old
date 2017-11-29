@@ -120,6 +120,8 @@ bin/hci_qcomm_init
 bin/wcnss_filter
 vendor/lib/libbtnv.so
 vendor/lib64/libbtnv.so
+vendor/lib/libbt-vendor.so
+vendor/lib64/libbt-vendor.so
 
 # other firmware
 etc/firmware/leia_pm4_470.fw
