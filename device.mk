@@ -29,10 +29,6 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 720
 
-# APPS
-PRODUCT_COPY_FILES += \
-$(LOCAL_PATH)/apps/footej/Footej.apk:system/app/footej/Footej.apk \
-
 # Permissions
 PRODUCT_COPY_FILES += \
     external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:system/etc/permissions/com.dsi.ant.antradio_library.xml \
