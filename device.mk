@@ -197,19 +197,22 @@ PRODUCT_COPY_FILES += \
 
 # OMX
 PRODUCT_PACKAGES += \
-    libmm-omxcore \
-    libOmxCore \
-    libdivxdrmdecrypt \
+    libdashplayer \
     libextmedia_jni \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxCore \
     libOmxEvrcEnc \
     libOmxQcelp13Enc \
-    libOmxSwVencHevc \
     libOmxVdec \
+    libOmxVdecHevc \
     libOmxVenc \
-    libstagefrighthw
+    libqcmediaplayer \
+    libstagefrighthw \
+    qcmediaplayer
+
+PRODUCT_BOOT_JARS += \
+    qcmediaplayer
 
 # Power
 PRODUCT_PACKAGES += \
