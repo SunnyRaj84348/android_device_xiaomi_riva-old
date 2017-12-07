@@ -221,11 +221,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libjson
 
-# Camera
-PRODUCT_PACKAGES += \
-    camera.msm8937 \
-    Snap
-
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
