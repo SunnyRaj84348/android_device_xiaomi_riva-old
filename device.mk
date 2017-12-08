@@ -138,10 +138,11 @@ PRODUCT_PACKAGES += \
     ethertypes \
     libebtc
 
-# FM
+# FM radio  
 PRODUCT_PACKAGES += \
-    FMRadio \
-    libfmjni
+    FM2 \
+    libqcomfm_jni \
+    qcom.fmradio
 
 # Fs_config
 PRODUCT_PACKAGES += \
