@@ -201,9 +201,7 @@ PRODUCT_COPY_FILES += \
 # OMX
 PRODUCT_PACKAGES += \
     libmm-omxcore \
-    libOmxCore \
-    libdivxdrmdecrypt \
-    libextmedia_jni \
+    libc2dcolorconvert \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxCore \
