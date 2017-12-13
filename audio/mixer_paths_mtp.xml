@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!--
-    Copyright (c) 2015-16, The Linux Foundation. All rights reserved.
+    Copyright (c) 2015-2016, The Linux Foundation. All rights reserved.
 
     Redistribution and use in source and binary forms, with or without
     modification, are permitted provided that the following conditions are
@@ -53,7 +53,7 @@
     <ctl name="HPHR Volume" value="9" />
     <ctl name="RX1 Digital Volume" value="84" />
     <ctl name="RX2 Digital Volume" value="84" />
-    <ctl name="RX3 Digital Volume" value="88" />
+    <ctl name="RX3 Digital Volume" value="84" />
     <ctl name="IIR1 INP1 Volume" value="84" />
     <ctl name="IIR1 INP2 Volume" value="84" />
     <ctl name="IIR1 INP3 Volume" value="84" />
@@ -80,6 +80,9 @@
     <ctl name="EAR_S" value="ZERO" />
     <ctl name="HPHL" value="ZERO" />
     <ctl name="HPHR" value="ZERO" />
+    <ctl name="Lineout_1 amp" value="DISABLE"/> 
+    <ctl name="headset amp" value="DISABLE"/>
+    <ctl name="SPK DAC Switch" value="0" />
     <ctl name="SPK" value="ZERO" />
     <ctl name="WSA Spk Switch" value="ZERO" />
     <ctl name="SpkrMono WSA_RDAC" value="ZERO" />
@@ -980,8 +983,12 @@
     </path>
 
     <path name="speaker">
-        <ctl name="RX3 MIX1 INP1" value="RX1" />
-        <ctl name="SPK" value="Switch" />
+        <ctl name="MI2S_RX Channels" value="One" />
+        <ctl name="RX2 MIX1 INP1" value="RX2" />
+        <ctl name="RDAC2 MUX" value="RX2" />
+        <ctl name="HPHR" value="Switch" />
+        <ctl name="Lineout_1 amp" value="ENABLE"/>
+
     </path>
 
     <path name="speaker-and-hdmi">
@@ -1041,6 +1048,7 @@
         <ctl name="RDAC2 MUX" value="RX2" />
         <ctl name="HPHL" value="Switch" />
         <ctl name="HPHR" value="Switch" />
+        <ctl name="headset amp" value="ENABLE"/>
     </path>
 
     <path name="headset-mic">
@@ -1098,6 +1106,7 @@
     <path name="speaker-and-headphones">
         <path name="speaker" />
         <path name="headphones" />
+        <ctl name="Lineout_1 amp" value="DUALMODE"/>
     </path>
 
     <path name="usb-headphones">
@@ -1233,6 +1242,14 @@
 
     <path name="voice-tty-vco-handset-mic">
         <path name="adc1" />
+    </path>
+
+    <path name="unprocessed-handset-mic">
+        <path name="handset-mic" />
+    </path>
+
+    <path name="unprocessed-mic">
+        <path name="unprocessed-handset-mic" />
     </path>
 
     <path name="ADSP testfwk">
