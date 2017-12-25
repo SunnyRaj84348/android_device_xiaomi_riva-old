@@ -62,7 +62,7 @@ camera2.portability.force_api=1
 ro.def.camera.video.quality=100
 ro.def.camera.bright.main=middle
 ro.camcorder.videoModes=true
-persist.camera.HAL3.enabled=1
+persist.camera.HAL3.enabled=0
 
 #Simulate sdcard on /data/media
 #
