@@ -247,7 +247,6 @@ hcidump.sh \
 hsic.control.bt.sh \
 init.qcom.factory.rc \
 init.qcom.sdio.sh \
-init.qcom.uicc.sh \
 init.qti.ims.sh \
 
 # RIL
