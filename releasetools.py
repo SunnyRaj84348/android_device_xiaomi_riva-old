@@ -27,7 +27,6 @@ def ImportMainBootloaderFirmware(info):
   info.script.AppendExtra('package_extract_file("install/firmware-update/cmnlib.mbn", "/dev/block/bootdevice/by-name/cmnlib");')
   info.script.AppendExtra('package_extract_file("install/firmware-update/rpm.mbn", "/dev/block/bootdevice/by-name/rpm");')
   info.script.AppendExtra('package_extract_file("install/firmware-update/tz.mbn", "/dev/block/bootdevice/by-name/tz");')
-  info.script.AppendExtra('package_extract_file("install/firmware-update/mdtp.img", "/dev/block/bootdevice/by-name/mdtp");')
   info.script.AppendExtra('package_extract_file("install/firmware-update/emmc_appsboot.mbn", "/dev/block/bootdevice/by-name/aboot");')
   info.script.AppendExtra('package_extract_file("install/firmware-update/lksecapp.mbn", "/dev/block/bootdevice/by-name/lksecapp");')
   info.script.AppendExtra('package_extract_file("install/firmware-update/sbl1.mbn", "/dev/block/bootdevice/by-name/sbl1");')
