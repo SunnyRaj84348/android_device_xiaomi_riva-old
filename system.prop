@@ -96,9 +96,6 @@ ro.qualcomm.cabl=0
 # DRM
 drm.service.enabled=true
 
-# Alarm
-ro.alarm_boot=true
-
 #Enable B service adj transition by default
 ro.sys.fw.bservice_enable=true
 ro.sys.fw.bservice_limit=5
