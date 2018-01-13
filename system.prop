@@ -64,8 +64,11 @@ ro.def.camera.bright.main=middle
 ro.camcorder.videoModes=true
 persist.camera.HAL3.enabled=0
 
+# enable new autobrightness algo
+sys.autobrightness_optimize=true
+persist.power.useautobrightadj=true
+
 #Simulate sdcard on /data/media
-#
 persist.fuse_sdcard=true
 
 #property for game detection feature
