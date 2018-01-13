@@ -446,6 +446,7 @@ vendor/lib/libactuator_ovt_ov12a10_i_dw9763.so
 
 # Camera chromatix
 vendor/lib/libchromatix_imx230_cpp_snapshot_downscale.so
+vendor/lib/libchromatix_imx258_default_video.so
 vendor/lib/libchromatix_imx230_cpp_snapshot_upscale.so
 vendor/lib/libchromatix_imx258_4k_preview_3a.so
 vendor/lib/libchromatix_imx258_4k_video_3a.so
@@ -2153,6 +2154,7 @@ vendor/lib/libsmwrapper.so
 
 # Media
 etc/firmware/DE.o.msm8937
+bin/mm-vidc-omx-test
 lib/libOmxSwVdec.so
 lib/libOmxVpp.so
 lib/libvpplibrary.so
@@ -2372,6 +2374,8 @@ vendor/lib64/lib-dplmedia.so
 vendor/lib64/lib-ims-rcscmjni.so
 vendor/lib64/lib-imsSDP.so
 vendor/lib64/lib-imscamera.so
+vendor/lib/lib-imscamera.so
+vendor/lib/libimscamera_jni.so
 vendor/lib64/lib-imsdpl.so
 vendor/lib64/lib-imsqimf.so
 vendor/lib64/lib-imsrcs.so
@@ -2393,7 +2397,6 @@ vendor/lib64/librcc.so
 vendor/lib64/libvoice-svc.so
 
 # FM Radio
-framework/qcom.fmradio.jar
 bin/fm_qsoc_patches
 
 # Sensors
@@ -2535,6 +2538,9 @@ bin/cnss_diag
 bin/wcnss_service
 bin/fstman
 lib/modules/pronto/pronto_wlan.ko
+
+# oem
+vendor/lib/liboemcrypto.so
 
 # To-Do
 vendor/lib/libaudioparsers.so
