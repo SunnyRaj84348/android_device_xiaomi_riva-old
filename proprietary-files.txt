@@ -2531,6 +2531,11 @@ vendor/lib/qcdrm/playready/lib/libtzplayready_customer.so
 vendor/lib/qcdrm/playready/lib/mediadrm/libprmediadrmdecrypt_customer.so
 vendor/lib/qcdrm/playready/lib/mediadrm/libprmediadrmplugin_customer.so
 
+# Mdtp
+vendor/bin/mdtpd
+vendor/lib/libmdtp_crypto.so 
+vendor/lib64/libmdtp_crypto.so
+
 # Wi-Fi
 bin/cnss-daemon
 etc/firmware/wlan/prima/WCNSS_cfg.dat
