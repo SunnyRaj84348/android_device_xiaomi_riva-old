@@ -120,8 +120,7 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    libshim_camera \
-    org.codeaurora.camera \
+    libshim_camera
 
 # Display
 PRODUCT_PACKAGES += \
