@@ -95,8 +95,6 @@ start_msm_irqbalance()
 	fi
 }
 
-chown -LR system.system /proc/gesture
-
 start_copying_prebuilt_qcril_db()
 {
     if [ -f /system/vendor/qcril.db -a ! -f /data/misc/radio/qcril.db ]; then

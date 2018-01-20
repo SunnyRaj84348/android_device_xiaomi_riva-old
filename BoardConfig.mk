@@ -120,7 +120,6 @@ BOARD_USES_CYANOGEN_HARDWARE := true
 BOARD_HARDWARE_CLASS += \
     hardware/cyanogen/cmhw \
     device/xiaomi/rolex/cmhw
-TARGET_TAP_TO_WAKE_NODE := "/proc/gesture/onoff"
 
 # CNE / DPM
 BOARD_USES_QCNE := true
