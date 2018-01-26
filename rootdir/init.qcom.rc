@@ -484,6 +484,11 @@ service qcom-c_core-sh /system/bin/sh /init.qcom.class_core.sh
     user root
     oneshot
 
+service baseband-sh /system/bin/sh /init.baseband.sh
+    class late_start
+    user root
+    oneshot
+
 service qcom-c_main-sh /system/bin/sh /init.class_main.sh
     class main
     user root
@@ -1094,9 +1099,6 @@ service fingerprint_log /system/bin/fingerprint_log
     user system
     group system sdcard_rw
     disabled
-
-
-
 
 on property:persist.sys.wingtech.debug=1
    start fingerprint_log

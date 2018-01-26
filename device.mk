@@ -269,6 +269,7 @@ hsic.control.bt.sh \
 init.qcom.factory.rc \
 init.qcom.sdio.sh \
 init.qti.ims.sh \
+init.baseband.sh \
 
 # RIL
 PRODUCT_PACKAGES += \
