@@ -152,7 +152,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/firmware/NON-HLOS.bin:install/firmware-update/NON-HLOS.bin \
     $(LOCAL_PATH)/firmware/rpm.mbn:install/firmware-update/rpm.mbn \
     $(LOCAL_PATH)/firmware/sbl1.mbn:install/firmware-update/sbl1.mbn \
-    $(LOCAL_PATH)/firmware/tz.mbn:install/firmware-update/tz.mbn
+    $(LOCAL_PATH)/firmware/tz.mbn:install/firmware-update/tz.mbn \
+    $(LOCAL_PATH)/firmware/mdtp.img:install/firmware-update/mdtp.img 
 
 # FM radio  
 PRODUCT_PACKAGES += \
