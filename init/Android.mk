@@ -21,8 +21,8 @@ include $(CLEAR_VARS)
 LOCAL_C_INCLUDES := \
     system/core/base/include \
     system/core/init
-LOCAL_MODULE := libinit_rolex
+LOCAL_MODULE := libinit_riva
 LOCAL_MODULE_TAGS := optional
-LOCAL_SRC_FILES := init_rolex.cpp
+LOCAL_SRC_FILES := init_riva.cpp
 
 include $(BUILD_STATIC_LIBRARY)

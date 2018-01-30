@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2017 The LineageOS Project
+# Copyright (C) 2018 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-$(call inherit-product, vendor/xiaomi/rolex/rolex-vendor.mk)
+$(call inherit-product, vendor/xiaomi/riva/riva-vendor.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -138,7 +138,7 @@ PRODUCT_PACKAGES += \
     libebtc
 
 # Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := device/xiaomi/rolex
+TARGET_RELEASETOOLS_EXTENSIONS := device/xiaomi/riva
 
 # Ship Firmware
 PRODUCT_COPY_FILES += \

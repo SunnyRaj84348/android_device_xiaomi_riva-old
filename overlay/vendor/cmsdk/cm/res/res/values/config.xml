@@ -34,8 +34,8 @@
     <integer name="config_deviceLightCapabilities">43</integer>
 
     <!-- Default wi-fi hotspot ssid -->
-    <string name="config_wifiHotSpotSsid" translatable="false">Redmi 4A</string>
+    <string name="config_wifiHotSpotSsid" translatable="false">Redmi 5A</string>
     <!-- Default wi-fi direct name -->
-    <string name="config_wifiDirectName" translatable="false">Redmi 4A</string>
+    <string name="config_wifiDirectName" translatable="false">Redmi 5A</string>
 
 </resources>
