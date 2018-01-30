@@ -34,7 +34,7 @@ def ImportMainBootloaderFirmware(info):
   info.script.AppendExtra('package_extract_file("install/firmware-update/keymaster.mbn", "/dev/block/bootdevice/by-name/keymaster");')
   info.script.AppendExtra('package_extract_file("install/firmware-update/NON-HLOS.bin", "/dev/block/bootdevice/by-name/modem");')
   info.script.AppendExtra('package_extract_file("install/firmware-update/adspso.bin", "/dev/block/bootdevice/by-name/dsp");')
-  info.script.AppendExtra('package_extract_file("install/firmware-update/splash.img", "/dev/block/bootdevice/by-name/splash");')
+  info.script.AppendExtra('package_extract_file("install/firmware-update/mdtp.img", "/dev/block/bootdevice/by-name/mdtp");')
 
 def ImportBkpBootloaderFirmware(info):
   info.script.AppendExtra('ui_print("Flashing Backup MultiRom 7.11.16 Firmware.");')

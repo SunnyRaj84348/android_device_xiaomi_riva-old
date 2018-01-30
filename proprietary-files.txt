@@ -2114,7 +2114,6 @@ lib/modules/lcd.ko
 lib/modules/mmc_block_test.ko
 lib/modules/mmc_test.ko
 lib/modules/rdbg.ko
-lib/modules/spidev.ko
 lib/modules/test-iosched.ko
 lib/modules/ufs_test.ko
 lib/modules/wil6210.ko
@@ -2470,9 +2469,8 @@ vendor/lib64/libconnctrl.so
 vendor/lib64/libQtiTether.so
 
 # Display calibration
-etc/qdcm_calib_data_hx8394F_HD720p_video_BOE_c3a.xml
-etc/qdcm_calib_data_ili9881c_HD720p_video_Ebbg_c3a.xml
-etc/qdcm_calib_data_nt35521s_HD720p_video_EBBG_c3a.xml
+etc/qdcm_calib_data_hx8394F_HD720p_video_BOE_c3b.xml
+etc/qdcm_calib_data_ili9881c_HD720p_video_Ebbg_c3b.xml
 
 # Perf
 bin/iop
@@ -2766,9 +2764,6 @@ bin/cnss_diag
 bin/wcnss_service
 bin/fstman
 lib/modules/pronto/pronto_wlan.ko
-
-# oem
-vendor/lib/liboemcrypto.so
 
 # To-Do
 vendor/lib/libaudioparsers.so

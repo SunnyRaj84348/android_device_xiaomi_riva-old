@@ -152,7 +152,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/firmware/NON-HLOS.bin:install/firmware-update/NON-HLOS.bin \
     $(LOCAL_PATH)/firmware/rpm.mbn:install/firmware-update/rpm.mbn \
     $(LOCAL_PATH)/firmware/sbl1.mbn:install/firmware-update/sbl1.mbn \
-    $(LOCAL_PATH)/firmware/tz.mbn:install/firmware-update/tz.mbn
+    $(LOCAL_PATH)/firmware/tz.mbn:install/firmware-update/tz.mbn \
+    $(LOCAL_PATH)/firmware/mdtp.img:install/firmware-update/mdtp.img 
 
 # FM radio  
 PRODUCT_PACKAGES += \
@@ -210,8 +211,10 @@ PRODUCT_PACKAGES += \
 # Media 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    $(LOCAL_PATH)/configs/media_codecs_8956.xml:system/etc/media_codecs_8956.xml \
     $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
-    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml 
+    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    $(LOCAL_PATH)/configs/media_profiles_8956.xml:system/etc/media_profiles_8956.xml \
 
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \

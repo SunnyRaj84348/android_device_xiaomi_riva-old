@@ -25,6 +25,6 @@ BOARD_VENDOR := Xiaomi
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BUILD_FINGERPRINT=Xiaomi/riva/riva:6.0.1/MMB29M/V8.5.1.0.MCCMIED:user/release-keys \
-PRIVATE_BUILD_DESC="riva-user 6.0.1 MMB29M V8.5.1.0.MCCMIED release-keys"
+    BUILD_FINGERPRINT=Xiaomi/riva/riva:7.1.2/N2G47H/V9.2.1.0.NCKMIEK:user/release-keys \
+PRIVATE_BUILD_DESC="riva-user 7.1.2 N2G47H V9.2.1.0.NCKMIEK release-keys"
 
