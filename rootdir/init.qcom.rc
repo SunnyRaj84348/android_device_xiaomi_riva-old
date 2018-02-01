@@ -223,6 +223,10 @@ on property:dt2w.enabled=1
 	
 on property:dt2w.enabled=0
     write /proc/gesture/onoff 0	
+
+# Fix dt2w permiissions
+    chmod 0660 /proc/gesture/onoff
+    chown system system /proc/gesture/onoff
 	
 # msm specific files that need to be created on /data
 on post-fs-data
