@@ -165,17 +165,31 @@ on boot
     # Allow access for CCID command/response timeout configuration
     chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
 
+# Leds
+    chown system system /sys/class/leds/keyboard-backlight/brightness
+    chown system system /sys/class/leds/lcd-backlight/brightness
+    chown system system /sys/class/leds/button-backlight/brightness
+    chown system system /sys/class/leds/jogball-backlight/brightness
+    chown system system /sys/class/leds/red/brightness
+    chown system system /sys/class/leds/red/blink
+    chown system system /sys/class/leds/green/brightness
+    chown system system /sys/class/leds/green/blink
+    chown system system /sys/class/leds/blue/brightness
+    chown system system /sys/class/leds/blue/blink
+    chown system system /sys/class/leds/red/device/grpfreq
+    chown system system /sys/class/leds/red/device/grppwm
+    chown system system /sys/class/leds/red/device/blink
+
+    # IR blaster
+    chown root system /sys/class/leds/infrared/transmit
+    chown root system /sys/class/leds/infrared/brightness
+
     # bond0 used by FST Manager
     chown wifi wifi /sys/class/net/bond0/bonding/queue_id
 
     # bug244097, enlarge the log buffer size,xuchao,20170206,start
     setprop persist.logd.size 2097152
     # bug244097, enlarge the log buffer size,xuchao,20170206,end
-
-    # Goodix Fingerprint
-    chown system system /dev/goodix_fp
-    chmod 0644 /dev/goodix_fp
-
 
     #bug 274787 - 【JIRA】【HONGMI-31927】 [D1-P2][fingerprint] set finger pay prop huangfusheng.wt 20170816 start
     on property:persist.sys.fp.vendor=fpc
