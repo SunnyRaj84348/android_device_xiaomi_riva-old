@@ -100,10 +100,10 @@ function configure_memory_parameters() {
     echo $clearPercent > /sys/module/zcache/parameters/clear_percent
     echo 30 >  /sys/module/zcache/parameters/max_pool_percent
 
-    # Zram disk - 512MB size
+    # Zram disk - 1500MB size
     zram_enable=`getprop ro.config.zram`
     if [ "$zram_enable" == "true" ]; then
-        echo 536870912 > /sys/block/zram0/disksize
+        echo 1636870912 > /sys/block/zram0/disksize
         mkswap /dev/block/zram0
         swapon /dev/block/zram0 -p 32758
     fi
@@ -129,14 +129,6 @@ function configure_memory_parameters() {
         fi
         mkswap /data/system/swap/swapfile
         swapon /data/system/swap/swapfile -p 32758
-    fi
-
-    #disable savesurface for Low-Memory Devices
-    if [ $MemTotal -le 2097152 ]; then
-        disableSaveSurface=`getprop persist.sys.disableSaveSurface`
-        if [ "$disableSaveSurface" != "true" ]; then
-            setprop persist.sys.disableSaveSurface true
-        fi
     fi
 }
 
@@ -1186,7 +1178,7 @@ case "$target" in
                 # spill load is set to 100% by default in the kernel
                 echo 3 > /proc/sys/kernel/sched_spill_nr_run
                 # Apply inter-cluster load balancer restrictions
-                echo 0 > /proc/sys/kernel/sched_restrict_cluster_spill
+                echo 1 > /proc/sys/kernel/sched_restrict_cluster_spill
 
 
                 for devfreq_gov in /sys/class/devfreq/qcom,mincpubw*/governor
@@ -1337,8 +1329,8 @@ case "$target" in
                 echo 0 > /sys/module/lpm_levels/parameters/sleep_disabled
 
                 # SMP scheduler
-                echo 100 > /proc/sys/kernel/sched_upmigrate
-                echo 100 > /proc/sys/kernel/sched_downmigrate
+                echo 85 > /proc/sys/kernel/sched_upmigrate
+                echo 85 > /proc/sys/kernel/sched_downmigrate
                 echo 19 > /proc/sys/kernel/sched_upmigrate_min_nice
 
                 # Enable sched guided freq control
@@ -2402,3 +2394,15 @@ case "$console_config" in
         echo "Enable console config to $console_config"
         ;;
 esac
+
+# Init.d support
+SU="$(ls /su/bin/su 2>/dev/null || ls /system/xbin/su) -c"
+mount -o rw,remount /system && SU="" || eval "$SU mount -o rw,remount /system"
+eval "$SU chmod 777 /system/etc/init.d"
+eval "$SU chmod 777 /system/etc/init.d/*"
+eval "$SU mount -o ro,remount /system"
+ls /system/etc/init.d/* 2>/dev/null | while read xfile ; do eval "$SU /system/bin/sh $xfile" ; done
+
+#LED
+chown system:system /sys/class/leds/*/brightness
+chown system:system /sys/class/leds/*/blink
