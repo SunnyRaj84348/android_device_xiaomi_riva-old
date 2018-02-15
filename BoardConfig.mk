@@ -203,6 +203,9 @@ $(shell rm -rf hardware/qcom/display-caf/msm8996/liblight)
 BOARD_HARDWARE_CLASS += \
     $(DEVICE_PATH)/lineagehw
 
+# Lights
+TARGET_PROVIDES_LIBLIGHT := true
+
 # Tap2Wake
 TARGET_TAP_TO_WAKE_NODE := "/proc/gesture/onoff"
 
