@@ -27,10 +27,10 @@
 #
 
 # Define fastmmi
-service fastmmi /system/bin/mmi
-    user root
-    group root
-    disabled
+#service fastmmi /system/bin/mmi
+    #user root
+    #group root
+    #disabled
 
 
 on property:sys.boot_mode=ffbm
@@ -39,12 +39,12 @@ on property:sys.boot_mode=ffbm
 on property:sys.boot_mode=normal
     write -p /dev/block /dev/block/bootdevice/by-name/misc "normal"
 
-service gx_fpd_fastmmi /system/bin/gx_fpd
-     class core
-     user root
-     group system system
-     oneshot
-     disabled
+#service gx_fpd_fastmmi /system/bin/gx_fpd
+     #class core
+     #user root
+     #group system system
+     #oneshot
+     #disabled
 
 # Creating a scratch storage on /data for factory testing.
 on factory-fs
@@ -276,8 +276,8 @@ on mmi
     chown root radio /proc/cmdline
 
     # Goodix Fingerprint
-    chown system system /dev/goodix_fp
-    chmod 0644 /dev/goodix_fp 
+    #chown system system /dev/goodix_fp
+    #chmod 0644 /dev/goodix_fp 
 
     # Define default initial receive window size in segments.
     setprop net.tcp.default_init_rwnd 60
@@ -329,7 +329,7 @@ on mmi
     start qcomsysd
     start ptt_ffbm
     start tftp_server
-    start gx_fpd_fastmmi   
+    #start gx_fpd_fastmmi   
     start qseecomd
 
 on ffbm

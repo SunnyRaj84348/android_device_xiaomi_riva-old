@@ -109,12 +109,12 @@ on property:persist.usb.chgdisabled=1
 on property:persist.usb.chgdisabled=0
     write /sys/class/power_supply/battery/charging_enabled 1
 
-service qrngp /system/bin/qrngp -f
-   class main
-   user root
-   group root
-   oneshot
-   disabled
+#service qrngp /system/bin/qrngp -f
+   #class main
+   #user root
+   #group root
+   #oneshot
+   #disabled
 
 on property:sys.boot_completed=1
    start qrngp
@@ -134,12 +134,12 @@ service perfd /system/vendor/bin/perfd
    user root
    disabled
 
-service gamed /system/vendor/bin/gamed
-   class main
-   user system
-   group system
-   disabled
-   socket gamed seqpacket 0640 system system
+#service gamed /system/vendor/bin/gamed
+   #class main
+   #user system
+   #group system
+   #disabled
+   #socket gamed seqpacket 0640 system system
 
 service thermal-engine /system/vendor/bin/thermal-engine
    class main
@@ -263,11 +263,11 @@ on charger
     #group system
     #disabled
 
-service dtseagleservice /system/bin/dts_eagle_service
-    class late_start
-    user system
-    group audio media
-    disabled
+#service dtseagleservice /system/bin/dts_eagle_service
+    #class late_start
+    #user system
+    #group audio media
+    #disabled
 
 service adsprpcd /system/bin/adsprpcd
     class main
@@ -304,8 +304,8 @@ service mdtpd /system/vendor/bin/mdtpd
     user root
     group system radio drmrpc
 
-on boot
-    write /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/fw_name PR1702898-s3528t_00260005_00380008.img
+#on boot
+#    write /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/#fw_name PR1702898-s3528t_00260005_00380008.img
 
 on boot && property:ro.factory_mode=1
    start mtd
