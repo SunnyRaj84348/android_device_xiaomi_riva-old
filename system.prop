@@ -190,6 +190,13 @@ persist.radio.sw_mbn_update=0
 persist.radio.hw_mbn_update=0
 service.qti.ims.enabled=1
 telephony.lteOnCdmaDevice=1
+ro.ril.disable.power.collapse=0
+pm.sleep_mode=1
+
+#Hardware_Power_Saving
+ro.config.hw_power_saving=true
+#Sensor_Sleep_Control
+ro.ril.sensor.sleep.control=1
 
 # Time Services
 persist.timed.enable=true
