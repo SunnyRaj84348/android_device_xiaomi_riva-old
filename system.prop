@@ -237,4 +237,4 @@ ro.config.zram=true
 ro.config.swap=true
 
 # Fix DT2W
-dt2w.enabled=1
+dt2w.enabled=0
