@@ -3241,12 +3241,7 @@ case "$console_config" in
         ;;
 esac
 
-# Set Permissions For LED
-chown system:system /sys/class/leds/*/brightness
-chown system:system /sys/class/leds/*/blink
-
 # Parse misc partition path and set property
 misc_link=$(ls -l /dev/block/bootdevice/by-name/misc)
 real_path=${misc_link##*>}
 setprop persist.vendor.mmi.misc_dev_path $real_path
-
