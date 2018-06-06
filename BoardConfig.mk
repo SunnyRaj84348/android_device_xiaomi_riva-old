@@ -211,6 +211,9 @@ TARGET_PER_MGR_ENABLED := true
 # Properties
 TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
 
+# Power
+TARGET_HAS_LEGACY_POWER_STATS := true
+
 # Qualcomm
 BOARD_USES_QCOM_HARDWARE := true
 BOARD_USES_QC_TIME_SERVICES := true
