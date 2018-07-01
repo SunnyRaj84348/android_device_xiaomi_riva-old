@@ -14,8 +14,6 @@
 # limitations under the License.
 #
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-
 $(call inherit-product, vendor/xiaomi/riva/riva-vendor.mk)
 
 # Overlays
@@ -306,7 +304,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 
 # Properties
--include device/xiaomi/rolex/vendor_prop.mk
+-include device/xiaomi/riva/vendor_prop.mk
 
 # Qualcomm
 PRODUCT_COPY_FILES += \
