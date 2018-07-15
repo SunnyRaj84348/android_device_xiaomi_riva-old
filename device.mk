@@ -16,7 +16,7 @@
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-$(call inherit-product, vendor/xiaomi/rolex/rolex-vendor.mk)
+$(call inherit-product, vendor/xiaomi/riva/riva-vendor.mk)
 
 # HWUI
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-3072-hwui-memory.mk)
@@ -334,7 +334,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-service.rolex
+    android.hardware.power@1.0-service.riva
 
 # Perf configuration
 PRODUCT_COPY_FILES += \
@@ -363,23 +363,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     init.baseband.sh \
     init.qcom.post_boot.sh
-
-# Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := device/xiaomi/rolex
-
-# Ship Miui Firmware
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/firmware/adspso.bin:install/firmware-update/adspso.bin \
-    $(LOCAL_PATH)/firmware/cmnlib64.mbn:install/firmware-update/cmnlib64.mbn \
-    $(LOCAL_PATH)/firmware/cmnlib.mbn:install/firmware-update/cmnlib.mbn \
-    $(LOCAL_PATH)/firmware/devcfg.mbn:install/firmware-update/devcfg.mbn \
-    $(LOCAL_PATH)/firmware/emmc_appsboot.mbn:install/firmware-update/emmc_appsboot.mbn \
-    $(LOCAL_PATH)/firmware/keymaster.mbn:install/firmware-update/keymaster.mbn \
-    $(LOCAL_PATH)/firmware/lksecapp.mbn:install/firmware-update/lksecapp.mbn \
-    $(LOCAL_PATH)/firmware/NON-HLOS.bin:install/firmware-update/NON-HLOS.bin \
-    $(LOCAL_PATH)/firmware/rpm.mbn:install/firmware-update/rpm.mbn \
-    $(LOCAL_PATH)/firmware/sbl1.mbn:install/firmware-update/sbl1.mbn \
-    $(LOCAL_PATH)/firmware/tz.mbn:install/firmware-update/tz.mbn
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
