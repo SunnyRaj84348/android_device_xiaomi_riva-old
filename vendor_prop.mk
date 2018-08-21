@@ -95,6 +95,8 @@ vendor.display.disable_skip_validate=1 \
 persist.debug.wfd.enable=1 \
 persist.hwc.enable_vds=1 \
 debug.hwui.use_buffer_age=false \
+sdm.debug.disable_rotator_split=1 \
+sdm.perf_hint_window=50 \
 debug.sdm.support_writeback=0
 
 # Property to enable display default color mode
