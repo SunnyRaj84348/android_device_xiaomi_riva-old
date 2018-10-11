@@ -325,6 +325,9 @@
 
     <!-- Whether the always on display mode is available. -->
     <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
+ 
+    <!-- Doze: should the TYPE_PICK_UP_GESTURE sensor be used as a pulse signal. -->
+    <bool name="config_dozePulsePickup">true</bool>
 
     <!-- Whether the display blanks itself when transition from a doze to a non-doze state -->
     <bool name="config_displayBlanksAfterDoze">true</bool>
@@ -439,6 +442,9 @@
 
     <!-- Whether the device supports Smart Pixels -->
     <bool name="config_enableSmartPixels">true</bool>
+
+    <!-- Whether WiFi display is supported by this device. -->
+    <bool name="config_enableWifiDisplay">true</bool>
 
 </resources>
 
