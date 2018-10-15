@@ -17,9 +17,9 @@
 $(call inherit-product, device/xiaomi/riva/full_riva.mk)
 
 # Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/du/config/common_full_phone.mk)
 
-PRODUCT_NAME := lineage_riva
+PRODUCT_NAME := du_riva
 BOARD_VENDOR := Xiaomi
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
