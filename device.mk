@@ -326,7 +326,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-service.riva
+    android.hardware.power@1.0-service.rolex
 
 # Perf configuration
 PRODUCT_COPY_FILES += \
