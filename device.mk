@@ -16,6 +16,8 @@
 
 $(call inherit-product, vendor/xiaomi/riva/riva-vendor.mk)
 
+DISABLE_EAP_PROXY := true
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
