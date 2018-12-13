@@ -227,7 +227,3 @@ ro.config.zram=true
 # Create Swap disk, if below sys-prop enabled & also if device has lower (< 1 GB) RAM
 PRODUCT_PROPERTY_OVERRIDES += \
 ro.config.swap=true
-
-# Fix DT2W
-PRODUCT_PROPERTY_OVERRIDES += \
-dt2w.enabled=1
