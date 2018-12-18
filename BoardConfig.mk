@@ -246,9 +246,9 @@ BOARD_ROOT_EXTRA_FOLDERS := persist
 VENDOR_SECURITY_PATCH := 2019-01-05
 
 # SELinux
-#include device/qcom/sepolicy/sepolicy.mk
+include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_VERS := 28.0
-#BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
+BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
 # Treble
 ENABLE_VENDOR_IMAGE := true
