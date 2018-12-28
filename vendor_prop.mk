@@ -158,9 +158,8 @@ persist.rild.nitz_short_ons_1="" \
 persist.rild.nitz_short_ons_2="" \
 persist.rild.nitz_short_ons_3=""
 
-# Optimize 
+# Optimize
 PRODUCT_PROPERTY_OVERRIDES += \
-sys.use_fifo_ui=1 \
 ro.sys.fw.dex2oat_thread_count=4 \
 dalvik.vm.boot-dex2oat-threads=8 \
 dalvik.vm.dex2oat-threads=4 \
