@@ -67,7 +67,7 @@ persist.debug.coresight.config=stm-events
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
 debug.egl.hw=1 \
-debug.gralloc.enable_fb_ubwc=1 \
+vendor.gralloc.enable_fb_ubwc=1 \
 debug.sf.hw=1 \
 debug.sf.latch_unsignaled=1 \
 dev.pm.dyn_samplingrate=1 \
