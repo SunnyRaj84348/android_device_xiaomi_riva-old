@@ -64,8 +64,8 @@ persist.vendor.camera.display.lmax=1280x720 \
 persist.camera.gyro.android=1 \
 persist.camera.is_type=1 \
 vendor.vidc.enc.narrow.searchrange=1 \
-camera.hal1.packagelist=com.skype.raider,com.google.android.talk \
-persist.camera.HAL3.enabled=1 \
+vendor.camera.hal1.packagelist=com.skype.raider,com.google.android.talk \
+persist.vendor.camera.HAL3.enabled=1 \
 persist.vendor.qti.telephony.vt_cam_interface=1
 
 # CNE/DPM
