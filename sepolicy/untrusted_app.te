@@ -7,3 +7,4 @@ allow untrusted_app device:chr_file { ioctl open read write };
 allow untrusted_app proc_vmstat:file { getattr open read }; 
 allow untrusted_app runtime_event_log_tags_file:file { open read };
 allow untrusted_app vendor_file:file { getattr open read };
+allow untrusted_app sysfs_kgsl:dir search;
