@@ -1,0 +1,15 @@
+allow untrusted_app_25 bluetooth_prop:file 
+read; allow untrusted_app_25 
+bootloader_boot_reason_prop:file read; 
+allow untrusted_app_25 boottime_prop:file 
+read; allow untrusted_app_25 
+ctl_bootanim_prop:file read; allow 
+untrusted_app_25 ctl_bugreport_prop:file 
+read; allow untrusted_app_25 
+device:chr_file { ioctl open read write }; 
+allow untrusted_app_25 mnt_media_rw_file:dir getattr;
+allow untrusted_app_25 mnt_product_file:dir getattr;
+allow untrusted_app_25 mnt_vendor_file:dir getattr;
+allow untrusted_app_25 proc_vmstat:file { getattr open read };
+allow untrusted_app_25 sysfs:file { getattr open read };
+allow untrusted_app_25 vendor_file:file { getattr open read };

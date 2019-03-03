@@ -1,0 +1,7 @@
+allow platform_app bluetooth_prop:file read;
+allow platform_app bootloader_boot_reason_prop:file read; 
+allow platform_app boottime_prop:file read; 
+allow platform_app ctl_bootanim_prop:file read;
+allow platform_app ctl_bugreport_prop:file read;
+allow platform_app device:chr_file { ioctl read write };
+allow platform_app vendor_file:file { open read };
