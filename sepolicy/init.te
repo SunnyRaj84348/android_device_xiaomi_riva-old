@@ -1,1 +1,10 @@
 allow init { domain -lmkd -crash_dump }:process noatsecure;
+allow init device:chr_file ioctl;
+allow init netutils_wrapper_exec:file { execute execute_no_trans getattr open read };
+allow init self:binder call;
+allow init self:netlink_route_socket read;
+allow init self:rawip_socket { create getopt setopt };
+allow init self:socket { read write };
+allow init self:udp_socket ioctl;
+allow init sysfs:file read;
+allow init system_file:file execute_no_trans;
